@@ -1,11 +1,11 @@
-package main.entrypoints
+package rest.api.entrypoints
 
-import main.service.UsuarioService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import rest.api.service.IUsuarioService
 
 @RestController
-class UsuarioController(val usuarioService: UsuarioService) {
+class UsuarioController(val usuarioService: IUsuarioService) {
 
     @GetMapping("/hello")
     fun hello() = "Hello user!"

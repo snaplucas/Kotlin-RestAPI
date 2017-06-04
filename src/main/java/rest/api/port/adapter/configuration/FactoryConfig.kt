@@ -1,10 +1,10 @@
-package rest.api.configuration
+package rest.api.port.adapter.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.MongoTemplate
-import rest.api.repository.UsuarioRepository
-import rest.api.service.UsuarioService
+import rest.api.port.adapter.repository.UsuarioRepository
+import rest.api.domain.model.services.UsuarioService
 
 @Configuration
 open class FactoryConfig(val mongoTemplate: MongoTemplate) {

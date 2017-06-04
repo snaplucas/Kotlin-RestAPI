@@ -1,4 +1,4 @@
-package rest.api.configuration
+package rest.api.port.adapter.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -13,7 +13,7 @@ open class SwaggerConfig {
     @Bean
     open fun configSwagger() = Docket(SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.basePackage("rest.api.entrypoints"))
+            .apis(RequestHandlerSelectors.basePackage("rest.api.port.adapter.entrypoints"))
             .paths(PathSelectors.any())
             .build()!!
 }

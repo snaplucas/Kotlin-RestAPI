@@ -1,4 +1,4 @@
-package rest.api.configuration
+package rest.api.port.adapter.configuration
 
 import com.mongodb.MongoClient
 import org.springframework.context.annotation.Configuration

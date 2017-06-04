@@ -1,11 +1,11 @@
-package rest.api.entrypoints
+package rest.api.port.adapter.entrypoints
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
-import rest.api.model.Usuario
-import rest.api.service.IUsuarioService
+import rest.api.domain.model.entities.Usuario
+import rest.api.domain.model.interrfaces.IUsuarioService
 
 @RestController
 class UsuarioController(val usuarioService: IUsuarioService) {

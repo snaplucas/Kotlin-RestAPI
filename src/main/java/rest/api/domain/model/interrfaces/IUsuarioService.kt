@@ -1,6 +1,6 @@
-package rest.api.service
+package rest.api.domain.model.interrfaces
 
-import rest.api.model.Usuario
+import rest.api.domain.model.entities.Usuario
 
 interface IUsuarioService {
 

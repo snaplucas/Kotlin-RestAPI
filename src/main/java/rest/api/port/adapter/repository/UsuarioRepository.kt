@@ -1,7 +1,8 @@
-package rest.api.repository
+package rest.api.port.adapter.repository
 
 import org.springframework.data.mongodb.core.MongoTemplate
-import rest.api.model.Usuario
+import rest.api.domain.model.entities.Usuario
+import rest.api.domain.model.interrfaces.IUsuarioRepository
 
 
 class UsuarioRepository(val mongoTemplate: MongoTemplate) : IUsuarioRepository {

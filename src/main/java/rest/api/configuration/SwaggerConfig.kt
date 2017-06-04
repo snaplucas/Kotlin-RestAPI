@@ -13,7 +13,7 @@ open class SwaggerConfig {
     @Bean
     open fun configSwagger() = Docket(SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.any())
+            .apis(RequestHandlerSelectors.basePackage("rest.api.entrypoints"))
             .paths(PathSelectors.any())
             .build()!!
 }

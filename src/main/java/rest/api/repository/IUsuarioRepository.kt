@@ -4,5 +4,9 @@ import rest.api.model.Usuario
 
 interface IUsuarioRepository {
 
-    fun obterUsuario(): Usuario
+    fun obterUsuario(id: String): Usuario?
+
+    fun obterTodos(): List<Usuario?>
+
+    fun adicionarUsuario(usuario: Usuario)
 }

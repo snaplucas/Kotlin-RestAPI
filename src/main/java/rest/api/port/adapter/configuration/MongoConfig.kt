@@ -1,6 +1,7 @@
 package rest.api.port.adapter.configuration
 
 import com.mongodb.MongoClient
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -12,9 +13,18 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext
 @Configuration
 open class MongoConfig : AbstractMongoConfiguration() {
 
-    override fun getDatabaseName() = "test"
+    @Value("\${mongodb.database}")
+    lateinit var database: String
 
-    override fun mongo() = MongoClient("127.0.0.1", 27017)
+    @Value("\${mongodb.host}")
+    lateinit var host: String
+
+    @Value("\${mongodb.port}")
+    lateinit var port: String
+
+    override fun getDatabaseName() = database
+
+    override fun mongo() = MongoClient(host, port.toInt())
 
     override fun mongoTemplate(): MongoTemplate {
         val converter = MappingMongoConverter(mongoDbFactory(), MongoMappingContext())

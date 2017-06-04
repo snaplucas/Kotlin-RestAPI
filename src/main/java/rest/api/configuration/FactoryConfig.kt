@@ -6,7 +6,7 @@ import rest.api.repository.UsuarioRepository
 import rest.api.service.UsuarioService
 
 @Configuration
-open class FactoryConfiguration {
+open class FactoryConfig {
 
     @Bean
     open fun getUsuarioRepository() = UsuarioRepository()

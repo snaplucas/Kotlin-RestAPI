@@ -8,7 +8,7 @@ import springfox.documentation.spi.DocumentationType.SWAGGER_2
 import springfox.documentation.spring.web.plugins.Docket
 
 @Configuration
-open class SwaggerConfiguration {
+open class SwaggerConfig {
 
     @Bean
     open fun configSwagger() = Docket(SWAGGER_2)

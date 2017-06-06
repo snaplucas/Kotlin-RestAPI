@@ -1,4 +1,4 @@
-package rest.api.domain.model.interrfaces
+package rest.api.domain.model.interfaces
 
 import rest.api.domain.model.entities.Usuario
 

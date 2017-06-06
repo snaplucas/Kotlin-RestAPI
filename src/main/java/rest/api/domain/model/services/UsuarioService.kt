@@ -1,8 +1,8 @@
 package rest.api.domain.model.services
 
 import rest.api.domain.model.entities.Usuario
-import rest.api.domain.model.interrfaces.IUsuarioRepository
-import rest.api.domain.model.interrfaces.IUsuarioService
+import rest.api.domain.model.interfaces.IUsuarioRepository
+import rest.api.domain.model.interfaces.IUsuarioService
 
 class UsuarioService(val usuarioRepository: IUsuarioRepository) : IUsuarioService {
 

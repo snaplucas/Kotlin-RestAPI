@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import rest.api.domain.model.entities.Usuario
-import rest.api.domain.model.interrfaces.IUsuarioService
+import rest.api.domain.model.interfaces.IUsuarioService
 
 @RestController
 class UsuarioController(val usuarioService: IUsuarioService) {

@@ -2,7 +2,7 @@ package rest.api.port.adapter.repository
 
 import org.springframework.data.mongodb.core.MongoTemplate
 import rest.api.domain.model.entities.Usuario
-import rest.api.domain.model.interrfaces.IUsuarioRepository
+import rest.api.domain.model.interfaces.IUsuarioRepository
 
 
 class UsuarioRepository(val mongoTemplate: MongoTemplate) : IUsuarioRepository {

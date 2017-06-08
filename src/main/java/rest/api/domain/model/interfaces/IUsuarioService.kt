@@ -9,4 +9,6 @@ interface IUsuarioService {
     fun adicionarUsuario(usuario: Usuario)
 
     fun obterTodos(): List<Usuario?>
+
+    fun remover(id: String)
 }

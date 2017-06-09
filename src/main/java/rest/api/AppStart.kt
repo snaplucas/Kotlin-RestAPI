@@ -16,9 +16,7 @@ open class AppStart : CommandLineRunner {
     lateinit var produtoRepository: IProdutoRepository
 
     override fun run(vararg p0: String?) {
-        val produto = Produto()
-        produto.nome = "nome teste"
-        produto.tipo = "tipo teste"
+        val produto = Produto("nome", "tipo")
         produtoRepository.salvar(produto)
     }
 }

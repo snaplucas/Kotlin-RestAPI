@@ -1,6 +1,15 @@
 spring:
-    main:
-        banner-mode: "off"
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Teste_Kotlin
+    username: postgres
+    password: postgres
+    platform: POSTGRESQL
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 server:
   port: 8888

@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*
 import rest.api.domain.model.entities.Usuario
 import rest.api.domain.model.interfaces.IUsuarioService
 
-@RestController
+@RestController("/usuario")
 class UsuarioController(val usuarioService: IUsuarioService) {
 
     @GetMapping("/obterusuario")

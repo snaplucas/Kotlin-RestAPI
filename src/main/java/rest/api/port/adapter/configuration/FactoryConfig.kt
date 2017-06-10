@@ -3,6 +3,7 @@ package rest.api.port.adapter.configuration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.MongoTemplate
+import rest.api.domain.model.services.ProdutoService
 import rest.api.domain.model.services.UsuarioService
 import rest.api.port.adapter.repository.ProdutoRepository
 import rest.api.port.adapter.repository.ProdutoRepositoryAdapter
@@ -19,4 +20,7 @@ open class FactoryConfig(val mongoTemplate: MongoTemplate, val produtoRepository
 
     @Bean
     open fun getProdutoRepository() = ProdutoRepositoryAdapter(produtoRepository)
+
+    @Bean
+    open fun getProdutoService() = ProdutoService(getProdutoRepository())
 }

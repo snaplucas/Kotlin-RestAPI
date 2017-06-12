@@ -10,6 +10,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  rabbitmq:
+    concurrentconsumers: 1
+    maxconcurrentconsumers: 1
 
 server:
   port: 8888
@@ -18,3 +21,9 @@ mongodb:
   database: "test"
   host: "127.0.0.1"
   port: "27017"
+
+amqp:
+  connectionFactory:
+    host: "localhost"
+    username: "lucas"
+    password: "lucas"

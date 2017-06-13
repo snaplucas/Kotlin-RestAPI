@@ -1,5 +1,5 @@
 # Kotlin-RestAPI
-## Spring - módulos utlizados
+## Spring - módulos utilizaos
 * Spring boot
 * Spring mvc
 * Spring data

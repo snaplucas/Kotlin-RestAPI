@@ -1,8 +1,21 @@
 # Kotlin-RestAPI
+## Spring - módulos utlizados
+* Spring boot
+* Spring mvc
+* Spring data
+* Spring amqp
+
+## Conceitos aplicados
+* SOLID
+* Clean Architecture
+* Dependency Injection
+* Factory Method
+* Adapter
+* Repository Pattern
 
 ## Docker
 ### Instalação
-Para ambiente windows sem suporte a Hyper-V instalar docker toolbox, que pode ser obtida clicando [aqui](https://www.docker.com/products/docker-toolbox)
+Em ambientes windows sem suporte a Hyper-V instalar docker toolbox, que pode ser obtido [aqui](https://www.docker.com/products/docker-toolbox)
 e rodar o QuickStart
 
 Especificando a shell a ser usada pelo docker em um terminal
@@ -34,6 +47,9 @@ Para descobrir o IP da máquina virtual:
 ``` bash
 $ docker-machine ip dev
 ```
+
+## Swagger
+A documentação da API foi feita utiilzando o framework swagger. Para visualiza-la basta acessar http://localhost:8888/swagger-ui.html com a aplicação rodando.
 
 ## MongoDB
 

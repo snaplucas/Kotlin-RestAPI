@@ -14,6 +14,8 @@ class RecebeEncomenda : IRecebeEncomenda {
     override fun receberEncomenda(encomenda: Encomenda) {
         try {
             println(encomenda)
+            println("Preco da encomenda: " + encomenda.preco)
+            println("Preco com desconto:" + encomenda.calcularDesconto({ x -> x * 0.9 }))
         } catch(e: Exception) {
             println(e.message)
         }

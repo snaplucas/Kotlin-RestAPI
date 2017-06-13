@@ -16,7 +16,7 @@ open class AppStart : CommandLineRunner {
     lateinit var enviaEncomenda: IEnviaEncomenda
 
     override fun run(vararg p0: String?) {
-        enviaEncomenda.enviarEncomenda("encomenda", Encomenda(id = "1", tipo = "tipo", peso = 10))
+        enviaEncomenda.enviarEncomenda("encomenda", Encomenda(id = "1", tipo = "tipo", preco = 10.0))
     }
 }
 

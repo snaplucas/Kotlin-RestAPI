@@ -22,8 +22,7 @@ mongodb:
   host: "127.0.0.1"
   port: "27017"
 
-amqp:
-  connectionFactory:
-    host: "localhost"
-    username: "lucas"
-    password: "lucas"
+messaging:
+  host: "192.168.99.100"
+  username: "guest"
+  password: "guest"

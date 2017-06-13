@@ -1,35 +1,43 @@
 package rest.api.port.adapter.configuration
 
 import org.springframework.amqp.core.AmqpAdmin
+import org.springframework.amqp.core.AmqpTemplate
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.rabbit.annotation.EnableRabbit
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory
 import org.springframework.amqp.rabbit.connection.ConnectionFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Profile
+import rest.api.port.adapter.messaging.EnviaMensagem
+import rest.api.port.adapter.messaging.RecebeMensagem
 
 @Configuration
 @EnableRabbit
-@Profile("develop")
-open class AmqpConfiguration(val amqpAdmin: AmqpAdmin) {
+open class AmqpConfiguration {
 
-    @Value("\${amqp.connectionFactory.host}")
+    @Autowired
+    lateinit var amqpAdmin: AmqpAdmin
+
+    @Autowired
+    lateinit var template: AmqpTemplate
+
+    @Value("\${messaging.host}")
     lateinit var host: String
 
-    @Value("\${amqp.connectionFactory.username}")
+    @Value("\${messaging.username}")
     lateinit var username: String
 
-    @Value("\${amqp.connectionFactory.password}")
+    @Value("\${messaging.password}")
     lateinit var password: String
 
     @Bean
     open fun rabbitConnectionFactory(): ConnectionFactory {
-        val connectionFactory = CachingConnectionFactory(host)
-        connectionFactory.username = username
-        connectionFactory.setPassword(password)
+        val connectionFactory = CachingConnectionFactory("192.168.99.100")
+        connectionFactory.username = "guest"
+        connectionFactory.setPassword("guest")
         return connectionFactory
     }
 
@@ -39,7 +47,13 @@ open class AmqpConfiguration(val amqpAdmin: AmqpAdmin) {
         factory.setConnectionFactory(rabbitConnectionFactory())
         factory.setConcurrentConsumers(3)
         factory.setMaxConcurrentConsumers(10)
-        amqpAdmin.declareQueue(Queue("teste"))
+        amqpAdmin.declareQueue(Queue("encomenda"))
         return factory
     }
+
+    @Bean
+    open fun getEnviaMensagem() = EnviaMensagem(template, amqpAdmin)
+
+    @Bean
+    open fun getRecebeMensagem() = RecebeMensagem()
 }

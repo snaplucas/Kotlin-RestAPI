@@ -1,3 +1,5 @@
 package rest.api.domain.model.entities
 
-data class Encomenda(val id: String, val tipo: String, val peso: Int)
+import java.io.Serializable
+
+data class Encomenda(val id: String, val tipo: String, val peso: Int) : Serializable

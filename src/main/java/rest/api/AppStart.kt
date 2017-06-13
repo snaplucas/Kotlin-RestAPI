@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import rest.api.application.interfaces.IEnviaMensagem
+import rest.api.application.interfaces.IEnviaEncomenda
 import rest.api.domain.model.entities.Encomenda
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
@@ -13,10 +13,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 open class AppStart : CommandLineRunner {
 
     @Autowired
-    lateinit var enviaMensagem: IEnviaMensagem
+    lateinit var enviaEncomenda: IEnviaEncomenda
 
     override fun run(vararg p0: String?) {
-        enviaMensagem.enviarMensagem("encomenda", Encomenda(id = "1", tipo = "tipo", peso = 10))
+        enviaEncomenda.enviarEncomenda("encomenda", Encomenda(id = "1", tipo = "tipo", peso = 10))
     }
 }
 

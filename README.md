@@ -18,7 +18,7 @@ $ @FOR /f "tokens=*" %i IN ('docker-machine env --shell cmd teste') DO @%i
 
 ## RabbitMQ
 
-Para não precisar instalar o rabbitMQ na própria máquina uma boa solução é usando um container do docker.
+Para não precisar instalar o rabbitMQ na própria máquina uma boa solução é usar um container do docker.
 
 Fazer pull da imagem oficial do rabbitMQ
 ``` bash
@@ -37,4 +37,4 @@ $ docker-machine ip dev
 
 ## MongoDB
 
-## Postgre
+## PostgreSQL

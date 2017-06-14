@@ -11,11 +11,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 open class WebConfiguration : WebMvcConfigurerAdapter() {
 
-    override fun addCorsMappings(registry: CorsRegistry?) {
-        registry!!.addMapping("/**")
+    override fun addCorsMappings(registry: CorsRegistry) {
+        registry.addMapping("/**")
     }
 
-    override fun addResourceHandlers(registry: ResourceHandlerRegistry?) {
-        registry!!.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/")
+    override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/")
     }
 }

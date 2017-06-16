@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import rest.api.domain.model.entities.Produto
-import rest.api.domain.model.services.ProdutoService
+import rest.api.domain.model.interfaces.IProdutoService
 
 @RestController("/produto")
-class ProdutoController(val produtoService: ProdutoService) {
+class ProdutoController(val produtoService: IProdutoService) {
 
     @GetMapping("/obter")
     fun obterPorId(id: Long) = produtoService.obterPorId(id)

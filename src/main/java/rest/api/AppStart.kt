@@ -1,24 +1,12 @@
 package rest.api
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import rest.api.application.interfaces.IEnviaEncomenda
-import rest.api.domain.model.entities.Encomenda
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 @SpringBootApplication
 @EnableSwagger2
-open class AppStart : CommandLineRunner {
-
-    @Autowired
-    lateinit var enviaEncomenda: IEnviaEncomenda
-
-    override fun run(vararg p0: String?) {
-        enviaEncomenda.enviarEncomenda("encomenda", Encomenda(id = "1", tipo = "tipo", preco = 10.0))
-    }
-}
+open class AppStart
 
 fun main(args: Array<String>) {
     SpringApplication.run(AppStart::class.java)

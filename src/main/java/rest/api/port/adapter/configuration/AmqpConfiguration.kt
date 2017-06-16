@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import rest.api.port.adapter.messaging.EnviaEncomenda
-import rest.api.port.adapter.messaging.RecebeEncomenda
 
 @Configuration
 @EnableRabbit
@@ -50,10 +48,4 @@ open class AmqpConfiguration {
         amqpAdmin.declareQueue(Queue("encomenda"))
         return factory
     }
-
-    @Bean
-    open fun getEnviaEncomenda() = EnviaEncomenda(template, amqpAdmin)
-
-    @Bean
-    open fun getRecebeEncomenda() = RecebeEncomenda()
 }

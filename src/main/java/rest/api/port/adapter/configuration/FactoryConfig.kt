@@ -36,7 +36,6 @@ open class FactoryConfig(val mongoTemplate: MongoTemplate, val produtoRepository
     @Bean
     open fun getProdutoService() = ProdutoService(getProdutoRepository())
 
-
     @Bean
     open fun getEnviaEncomenda() = EnviaEncomenda(template, amqpAdmin)
 

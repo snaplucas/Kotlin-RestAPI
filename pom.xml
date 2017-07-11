@@ -104,6 +104,11 @@
             <artifactId>ktor-gson</artifactId>
             <version>0.4.0-alpha-9</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.ktor</groupId>
+            <artifactId>ktor-netty</artifactId>
+            <version>${ktor.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -128,6 +133,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <mainClass>org.jetbrains.ktor.jetty.JettyPackag</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

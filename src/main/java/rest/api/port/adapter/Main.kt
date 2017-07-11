@@ -1,6 +1,7 @@
 package rest.api.port.adapter
 
 import org.jetbrains.ktor.application.Application
+import org.jetbrains.ktor.application.ApplicationResponse
 import org.jetbrains.ktor.application.call
 import org.jetbrains.ktor.application.install
 import org.jetbrains.ktor.features.Compression
@@ -11,6 +12,7 @@ import org.jetbrains.ktor.http.ContentType
 import org.jetbrains.ktor.http.HttpStatusCode
 import org.jetbrains.ktor.jetty.Jetty
 import org.jetbrains.ktor.logging.CallLogging
+import org.jetbrains.ktor.netty.Netty
 import org.jetbrains.ktor.response.respondText
 import org.jetbrains.ktor.routing.get
 import org.jetbrains.ktor.routing.routing
@@ -20,10 +22,12 @@ import rest.api.domain.model.entities.Usuario
 data class Banda(val guitar: String, val bass: String, val drums: String)
 
 fun main(args: Array<String>) {
+    val usuario = Usuario("Mariana")
+
     embeddedServer(Jetty, 8080) {
         routing {
             get("/usuarios") {
-                call.respond(Usuario(nome = "Lucas", idade = 29))
+                call.respond(usuario)
             }
             get("/produtos") {
                 call.respond(Produto(nome = "Produto", tipo = "Teste"))
@@ -32,7 +36,7 @@ fun main(args: Array<String>) {
                 call.respondText("""Hello, world!<br><a href="/bye">Say bye?</a>""", ContentType.Text.Html)
             }
             get("/band") {
-                call.respond(Banda(guitar = "eddie", bass = "billy", drums = "mike"))
+                call.respondText(Banda(guitar = "eddie", bass = "billy", drums = "mike").toString())
             }
         }
     }.start(wait = true)

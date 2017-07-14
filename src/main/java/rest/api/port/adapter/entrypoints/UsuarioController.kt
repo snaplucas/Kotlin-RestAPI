@@ -3,6 +3,8 @@ package rest.api.port.adapter.entrypoints
 import org.springframework.web.bind.annotation.*
 import rest.api.domain.model.entities.Usuario
 import rest.api.domain.model.interfaces.IUsuarioService
+import java.lang.RuntimeException
+import java.util.concurrent.TimeoutException
 
 @RestController("/usuario")
 class UsuarioController(val usuarioService: IUsuarioService) {
@@ -18,4 +20,10 @@ class UsuarioController(val usuarioService: IUsuarioService) {
 
     @PostMapping("/remover")
     fun removerUsuario(@RequestParam id: String) = usuarioService.remover(id)
+
+    @GetMapping("/excecao/runtime")
+    fun capturaRutimeException(): Nothing = throw RuntimeException()
+
+    @GetMapping("/excecao/timeout")
+    fun capturaTimeoutException(): Nothing = throw TimeoutException()
 }

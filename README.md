@@ -52,8 +52,9 @@ $ docker-machine ip dev
 A documentação da API foi feita utiilzando o framework swagger. Para visualiza-la basta acessar http://localhost:8888/swagger-ui.html com a aplicação rodando.
 
 ## KTOR
+Para maiores informações: https://github.com/Kotlin/ktor
+
 As configurções do ktor estão em application.conf e o servidor http esta subindo na porta 8080
-https://github.com/Kotlin/ktor
 
 ## MongoDB
 

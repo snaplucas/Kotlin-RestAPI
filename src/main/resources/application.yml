@@ -26,3 +26,9 @@ messaging:
   host: "192.168.99.100"
   username: "guest"
   password: "guest"
+
+security:
+  user:
+    name: admin
+    password: 123456
+    role: SYSTEM

@@ -57,5 +57,21 @@ Para maiores informações: https://github.com/Kotlin/ktor
 As configurções do ktor estão em application.conf e o servidor http esta subindo na porta 8080
 
 ## MongoDB
+O mongoDB pode ser obtido em https://www.mongodb.com/download-center#community
 
+Também é possível usar um container do docker ao invés de roda-lo na própria máquina, para isso execute o seguinte comando
+
+``` bash
+$ docker run -p 27017:27017 -d bitnami/mongodb
+```
+Isso irá baixar a imagem do repositório oficial do mongodb e rodar o containe
+
+A comunicação com o mongodb é feita utilizando o módulo spring-data-mongodb
+
+As configurações estão no yml e são:
+  * database: "test"
+  * host: "127.0.0.1"
+  * port: "27017"
+
+Ao se usar o docker o host devera ser 192.168.99.100 (ou o ip em que a machine estiver rodando)
 ## PostgreSQL

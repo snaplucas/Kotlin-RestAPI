@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_FEATURE_WARNING")
+
 package rest.api.port.adapter
 
 import com.google.gson.Gson

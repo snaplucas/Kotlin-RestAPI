@@ -9,7 +9,7 @@ import java.util.concurrent.Executor
 
 @Configuration
 @EnableAsync
-open class ThreadPoolConfiguration {
+open class ThreadPoolConfig {
 
     @Bean(name = arrayOf("threadPoolTaskExecutor"))
     open fun threadPoolTaskExecutor(): Executor = ThreadPoolTaskExecutor()

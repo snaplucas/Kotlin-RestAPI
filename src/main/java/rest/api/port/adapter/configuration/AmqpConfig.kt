@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @EnableRabbit
-open class AmqpConfiguration {
+open class AmqpConfig {
 
     @Autowired
     lateinit var amqpAdmin: AmqpAdmin

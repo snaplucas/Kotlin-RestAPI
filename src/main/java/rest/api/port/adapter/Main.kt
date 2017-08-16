@@ -14,6 +14,10 @@ import org.jetbrains.ktor.host.embeddedServer
 import org.jetbrains.ktor.http.ContentType
 import org.jetbrains.ktor.http.HttpStatusCode
 import org.jetbrains.ktor.jetty.Jetty
+import org.jetbrains.ktor.locations.Locations
+import org.jetbrains.ktor.locations.location
+import org.jetbrains.ktor.locations.post
+import org.jetbrains.ktor.request.receive
 import org.jetbrains.ktor.response.respond
 import org.jetbrains.ktor.response.respondText
 import org.jetbrains.ktor.routing.Routing
@@ -21,21 +25,26 @@ import org.jetbrains.ktor.routing.get
 import rest.api.domain.model.entities.Produto
 import rest.api.domain.model.entities.Usuario
 
+
 data class Banda(val guitar: String, val bass: String, val drums: String)
 data class Item(val key: String, val value: String)
 data class Model(val name: String, val items: List<Item>)
 
+@location("/band") class post
 
 fun main(args: Array<String>) {
-    embeddedServer(Jetty, 8080, module = Application::module).start()
+    embeddedServer(Jetty, 8080, module = Application::main).start()
 }
 
 val gson: Gson = GsonBuilder().setPrettyPrinting().create()
 
-fun Application.module() {
+fun Application.main() {
     install(DefaultHeaders)
     install(CallLogging)
-    install(GsonSupport)
+    install(Locations)
+    install(GsonSupport) {
+        setPrettyPrinting()
+    }
     install(Routing) {
         get("/usuarios") {
             val usuario = Usuario(nome = "Mariana")
@@ -59,6 +68,10 @@ fun Application.module() {
         get("/v1/item/{key}") {
             val item = model.items.firstOrNull { it.key == call.parameters["key"] }
             if (item == null) call.respond(HttpStatusCode.NotFound) else call.respond(item)
+        }
+        post<post> {
+            val band = call.receive<Banda>()
+            println(band)
         }
     }
 }

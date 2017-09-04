@@ -7,11 +7,13 @@ import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFacto
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory
 import org.springframework.amqp.rabbit.connection.ConnectionFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 @EnableRabbit
+@ConfigurationProperties("messaging")
 open class AmqpConfig {
 
     @Autowired
@@ -19,10 +21,7 @@ open class AmqpConfig {
 
     @Bean
     open fun rabbitConnectionFactory(): ConnectionFactory {
-        val connectionFactory = CachingConnectionFactory("192.168.99.100")
-        connectionFactory.username = "guest"
-        connectionFactory.setPassword("guest")
-        return connectionFactory
+        return CachingConnectionFactory()
     }
 
     @Bean

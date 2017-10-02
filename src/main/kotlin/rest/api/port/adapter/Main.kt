@@ -45,6 +45,7 @@ fun Application.main() {
     install(GsonSupport) {
         setPrettyPrinting()
     }
+    
     install(Routing) {
         get("/usuarios") {
             val usuario = Usuario(nome = "Mariana")

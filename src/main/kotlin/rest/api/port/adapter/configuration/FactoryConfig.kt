@@ -16,7 +16,7 @@ import rest.api.port.adapter.repository.ProdutoRepositoryAdapter
 import rest.api.port.adapter.repository.UsuarioRepository
 
 @Configuration
-open class FactoryConfig(val mongoTemplate: MongoTemplate, val produtoRepository: ProdutoRepository) {
+open class FactoryConfig(private val mongoTemplate: MongoTemplate, private val produtoRepository: ProdutoRepository) {
 
     @Autowired
     lateinit var amqpAdmin: AmqpAdmin

@@ -7,7 +7,7 @@ import rest.api.domain.model.entities.Usuario
 import rest.api.domain.model.interfaces.IUsuarioRepository
 
 
-class UsuarioRepository(val mongoTemplate: MongoTemplate) : IUsuarioRepository {
+class UsuarioRepository(private val mongoTemplate: MongoTemplate) : IUsuarioRepository {
 
     override fun obterPorId(id: String): Usuario? = mongoTemplate.findById(id, Usuario::class.java)
 
@@ -15,7 +15,7 @@ class UsuarioRepository(val mongoTemplate: MongoTemplate) : IUsuarioRepository {
 
     override fun obterTodos(): List<Usuario?> = mongoTemplate.findAll(Usuario::class.java)
 
-    override fun remover(id: String): Unit {
+    override fun remover(id: String) {
         mongoTemplate.findAndRemove(Query(Criteria.where("_id").`is`(id)), Usuario::class.java)
     }
 }

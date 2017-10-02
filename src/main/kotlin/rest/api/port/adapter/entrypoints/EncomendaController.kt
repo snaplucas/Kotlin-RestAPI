@@ -8,7 +8,7 @@ import rest.api.application.interfaces.IEncomendaAppService
 import rest.api.domain.model.entities.Encomenda
 
 @RestController("/encomenda")
-class EncomendaController(val encomendaAppService: IEncomendaAppService) {
+class EncomendaController(private val encomendaAppService: IEncomendaAppService) {
 
     @PostMapping("/enviar/{fila}")
     fun enviarEncomanda(@PathVariable fila: String, @RequestBody encomenda: Encomenda) {

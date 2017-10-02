@@ -5,7 +5,7 @@ import org.springframework.amqp.core.AmqpTemplate
 import org.springframework.amqp.core.Queue
 import rest.api.application.interfaces.IEnviaEncomenda
 
-class EnviaEncomenda(val template: AmqpTemplate, val amqpAdmin: AmqpAdmin) : IEnviaEncomenda {
+class EnviaEncomenda(private val template: AmqpTemplate, private val amqpAdmin: AmqpAdmin) : IEnviaEncomenda {
 
     override fun enviarEncomenda(queue: String, mensagem: Any) {
         amqpAdmin.declareQueue(Queue(queue))

@@ -8,7 +8,7 @@ import rest.api.domain.model.entities.Produto
 import rest.api.domain.model.interfaces.IProdutoService
 
 @RestController("/produto")
-class ProdutoController(val produtoService: IProdutoService) {
+class ProdutoController(private val produtoService: IProdutoService) {
 
     @GetMapping("/obter")
     fun obterPorId(id: Long) = produtoService.obterPorId(id)

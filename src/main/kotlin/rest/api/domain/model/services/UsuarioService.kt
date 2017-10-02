@@ -4,7 +4,7 @@ import rest.api.domain.model.entities.Usuario
 import rest.api.domain.model.interfaces.IUsuarioRepository
 import rest.api.domain.model.interfaces.IUsuarioService
 
-class UsuarioService(val usuarioRepository: IUsuarioRepository) : IUsuarioService {
+class UsuarioService(private val usuarioRepository: IUsuarioRepository) : IUsuarioService {
 
     override fun obterUsuario(id: String) = usuarioRepository.obterPorId(id)
 

@@ -7,7 +7,7 @@ import java.lang.RuntimeException
 import java.util.concurrent.TimeoutException
 
 @RestController("/usuario")
-class UsuarioController(val usuarioService: IUsuarioService) {
+class UsuarioController(private val usuarioService: IUsuarioService) {
 
     @GetMapping("/obterusuario")
     fun obterUsuario(id: String) = usuarioService.obterUsuario(id)

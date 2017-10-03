@@ -43,5 +43,5 @@ open class FactoryConfig(private val mongoTemplate: MongoTemplate, private val p
     open fun getRecebeEncomenda() = RecebeEncomenda()
 
     @Bean
-    open fun getEncomandaAppService() = EncomendaAppService(getEnviaEncomenda())
+    open fun getEncomendaAppService() = EncomendaAppService(getEnviaEncomenda())
 }

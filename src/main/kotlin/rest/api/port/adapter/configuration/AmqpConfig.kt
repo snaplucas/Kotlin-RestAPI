@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration
 @ConfigurationProperties("messaging")
 open class AmqpConfig {
 
-    @Autowired
+    @Autowired private
     lateinit var amqpAdmin: AmqpAdmin
 
     @Bean

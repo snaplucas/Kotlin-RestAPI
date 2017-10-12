@@ -18,10 +18,10 @@ import rest.api.port.adapter.repository.UsuarioRepository
 @Configuration
 open class FactoryConfig(private val mongoTemplate: MongoTemplate, private val produtoRepository: ProdutoRepository) {
 
-    @Autowired
+    @Autowired private
     lateinit var amqpAdmin: AmqpAdmin
 
-    @Autowired
+    @Autowired private
     lateinit var template: AmqpTemplate
 
     @Bean

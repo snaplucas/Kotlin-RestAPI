@@ -74,6 +74,7 @@ fun Application.main() {
             val band = call.receive<Banda>()
             println(band)
         }
+        movies()
     }
 }
 

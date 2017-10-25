@@ -5,6 +5,7 @@ import org.springframework.amqp.core.AmqpTemplate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import org.springframework.data.mongodb.core.MongoTemplate
 import rest.api.application.services.EncomendaAppService
 import rest.api.domain.model.services.ProdutoService
@@ -37,11 +38,14 @@ open class FactoryConfig(private val mongoTemplate: MongoTemplate, private val p
     open fun getProdutoService() = ProdutoService(getProdutoRepository())
 
     @Bean
+    @Profile("amqp")
     open fun getEnviaEncomenda() = EnviaEncomenda(template, amqpAdmin)
 
     @Bean
+    @Profile("amqp")
     open fun getRecebeEncomenda() = RecebeEncomenda()
 
     @Bean
+    @Profile("amqp")
     open fun getEncomendaAppService() = EncomendaAppService(getEnviaEncomenda())
 }

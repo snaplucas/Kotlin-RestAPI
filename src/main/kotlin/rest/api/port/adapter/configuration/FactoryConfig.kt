@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
 import org.springframework.data.mongodb.core.MongoTemplate
 import rest.api.application.services.EncomendaAppService
+import rest.api.application.services.ProdutoAppService
 import rest.api.domain.model.services.ProdutoService
 import rest.api.domain.model.services.UsuarioService
 import rest.api.port.adapter.messaging.EnviaEncomenda
@@ -36,6 +37,9 @@ open class FactoryConfig(private val mongoTemplate: MongoTemplate, private val p
 
     @Bean
     open fun getProdutoService() = ProdutoService(getProdutoRepository())
+
+    @Bean
+    open fun getProdutoAppService() = ProdutoAppService(getProdutoService())
 
     @Bean
     @Profile("amqp")

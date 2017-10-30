@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
+import rest.api.application.exceptions.EntityNotFoundException
 import java.util.concurrent.TimeoutException
 
 
@@ -23,5 +24,10 @@ open class ExceptionHandler : ResponseEntityExceptionHandler() {
     open fun handleTimeoutException(excecao: TimeoutException, request: WebRequest): ResponseEntity<Any> {
         val mensagem = "Timeout exception capturada"
         return handleExceptionInternal(excecao, mensagem, HttpHeaders(), HttpStatus.ACCEPTED, request)
+    }
+
+    @ExceptionHandler(EntityNotFoundException::class)
+    open fun handleEntityNotFoundException(excecao: EntityNotFoundException, request: WebRequest): ResponseEntity<Any> {
+        return handleExceptionInternal(excecao, excecao.message, HttpHeaders(), HttpStatus.ACCEPTED, request)
     }
 }

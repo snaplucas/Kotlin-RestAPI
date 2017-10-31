@@ -30,13 +30,16 @@ data class Banda(val guitar: String, val bass: String, val drums: String)
 data class Item(val key: String, val value: String)
 data class Model(val name: String, val items: List<Item>)
 
-@location("/band") class post
+@location("/band")
+class post
 
 fun main(args: Array<String>) {
     embeddedServer(Jetty, 8080, module = Application::main).start()
 }
 
 val gson: Gson = GsonBuilder().setPrettyPrinting().create()
+
+val model = Model("root", listOf(Item("A", "Apache"), Item("B", "Bing")))
 
 fun Application.main() {
     install(DefaultHeaders)
@@ -45,7 +48,7 @@ fun Application.main() {
     install(GsonSupport) {
         setPrettyPrinting()
     }
-    
+
     install(Routing) {
         get("/usuarios") {
             val usuario = Usuario(nome = "Mariana")
@@ -62,13 +65,12 @@ fun Application.main() {
             val band = Banda(guitar = "eddie", bass = "billy", drums = "mike")
             call.respond(band)
         }
-        val model = Model("root", listOf(Item("A", "Apache"), Item("B", "Bing")))
         get("/v1") {
             call.respond(model)
         }
         get("/v1/item/{key}") {
             val item = model.items.firstOrNull { it.key == call.parameters["key"] }
-            if (item == null) call.respond(HttpStatusCode.NotFound) else call.respond(item)
+            call.respond(item ?: HttpStatusCode.NotFound)
         }
         post<post> {
             val band = call.receive<Banda>()

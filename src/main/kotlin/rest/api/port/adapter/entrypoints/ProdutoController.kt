@@ -7,8 +7,8 @@ import rest.api.domain.model.entities.Produto
 @RestController("/produto")
 class ProdutoController(private val produtoService: IProdutoAppService) {
 
-    @GetMapping("/obter")
-    fun obterPorId(id: Long) = produtoService.obterPorId(id)
+    @GetMapping("/obter/{id}")
+    fun obterPorId(@PathVariable id: Long) = produtoService.obterPorId(id)
 
     @PostMapping("/salvar")
     fun salvar(@RequestBody produto: Produto) = produtoService.salvar(produto)

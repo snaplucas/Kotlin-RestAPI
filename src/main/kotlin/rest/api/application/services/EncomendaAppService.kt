@@ -7,7 +7,6 @@ import rest.api.domain.model.entities.Encomenda
 class EncomendaAppService(private val envia: IEnviaEncomenda) : IEncomendaAppService {
 
     override fun enviarEncomenda(encomenda: Encomenda, destino: String) {
-        // TODO: validações para encomenda
         envia.enviarEncomenda(queue = destino, mensagem = encomenda)
     }
 }

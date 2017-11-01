@@ -1,6 +1,6 @@
 package rest.api.port.adapter.repository
 
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import rest.api.domain.model.entities.Produto
 
-interface ProdutoRepository : CrudRepository<Produto, Long>
+interface ProdutoRepository : JpaRepository<Produto, Long>

@@ -70,6 +70,7 @@ fun Application.main() {
         }
         get("/v1/item/{key}") {
             val item = model.items.firstOrNull { it.key == call.parameters["key"] }
+            val foo = model.items.firstOrNull { x -> x.key == call.parameters["key"] }
             call.respond(item ?: HttpStatusCode.NotFound)
         }
         post<post> {

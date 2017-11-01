@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Profile
 @Configuration
 @EnableRabbit
 @ConfigurationProperties("messaging")
-@Profile("amqp")
+@Profile("complete")
 open class AmqpConfig {
 
     @Autowired private

@@ -4,6 +4,7 @@ import com.mongodb.MongoClient
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper
@@ -13,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext
 
 @Configuration
 @ConfigurationProperties("mongodb")
+@Profile("complete")
 open class MongoConfig : AbstractMongoConfiguration() {
 
     @Value("\${mongodb.database}")

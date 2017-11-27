@@ -22,17 +22,6 @@
         <ktor.version>0.4.0-alpha-14</ktor.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-kotlin-ktor</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/kotlin/ktor</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,26 +79,6 @@
             <artifactId>gson</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains.ktor</groupId>
-            <artifactId>ktor-core</artifactId>
-            <version>${ktor.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.ktor</groupId>
-            <artifactId>ktor-jetty</artifactId>
-            <version>${ktor.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.ktor</groupId>
-            <artifactId>ktor-gson</artifactId>
-            <version>0.4.0-alpha-9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.ktor</groupId>
-            <artifactId>ktor-netty</artifactId>
-            <version>${ktor.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
         </dependency>
@@ -118,48 +87,9 @@
             <artifactId>spring-security-config</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains.ktor</groupId>
-            <artifactId>ktor-locations</artifactId>
-            <version>${ktor.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>RELEASE</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

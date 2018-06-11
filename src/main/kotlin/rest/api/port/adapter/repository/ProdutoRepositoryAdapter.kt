@@ -8,5 +8,9 @@ class ProdutoRepositoryAdapter(private val produtoRepository: ProdutoRepository)
 
     override fun obterPorId(id: Long): Produto? = produtoRepository.findOne(id)
 
-    override fun salvar(produto: Produto): Produto = try { produtoRepository.save(produto) } catch (e: Exception) { throw PersistenceException(e) }
+    override fun salvar(produto: Produto): Produto = try {
+        produtoRepository.save(produto)
+    } catch (e: Exception) {
+        throw PersistenceException(e)
+    }
 }

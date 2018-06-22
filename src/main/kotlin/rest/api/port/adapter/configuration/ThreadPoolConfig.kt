@@ -11,10 +11,10 @@ import java.util.concurrent.Executor
 @EnableAsync
 open class ThreadPoolConfig {
 
-    @Bean(name = arrayOf("threadPoolTaskExecutor"))
+    @Bean(name = ["threadPoolTaskExecutor"])
     open fun threadPoolTaskExecutor(): Executor = ThreadPoolTaskExecutor()
 
-    @Bean(name = arrayOf("anotherThreadPoool"))
+    @Bean(name = ["anotherThreadPoool"])
     open fun anotherThreadPool(): Executor = ThreadPoolTaskExecutor()
 
 }

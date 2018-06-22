@@ -10,7 +10,7 @@ import rest.api.domain.model.entities.Encomenda
 class RecebeEncomenda : IRecebeEncomenda {
 
     @Async
-    @RabbitListener(queues = arrayOf("encomenda"), containerFactory = "rabbitListenerContainerFactory")
+    @RabbitListener(queues = ["encomenda"], containerFactory = "rabbitListenerContainerFactory")
     override fun receberEncomenda(encomenda: Encomenda) {
         try {
             println(encomenda)
